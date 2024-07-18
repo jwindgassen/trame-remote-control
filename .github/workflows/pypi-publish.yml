@@ -4,11 +4,17 @@ on:
   release:
     types: [published]
 
-
 jobs:
   publish:
     runs-on: ubuntu-latest
-    environment: deploy
+
+    environment:
+      name: deploy
+      url: https://pypi.org/p/trame-remote-control
+
+    permissions:
+      contents: read
+      id-token: write
 
     steps:
       - name: Checkout
